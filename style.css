@@ -226,7 +226,20 @@ img{ max-width:100%; display:block; }
 .slider .prev { left: 20px; }
 .slider .next { right: 20px; }
 
+/* === AJUSTE: POSICIONAR SETAS NA PARTE INFERIOR === */
+.slider .nav,
+.hero-nav {
+  top: auto;
+  bottom: 1px;           /* move as setas para a parte inferior */
+  transform: none;        /* remove centralização vertical */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+}
 
+.slider .nav:hover,
+.hero-nav:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
 
 /* === GRIDS UNIFICADOS === */
 .grid,
@@ -403,5 +416,59 @@ footer{ margin-top:50px; padding:24px 0; border-top:1px solid var(--border); col
     grid-template-columns: 1fr;
   }
 }
+/* === AJUSTE: CONTER IMAGENS E VÍDEOS DENTRO DA TELA EM MOBILE === */
+@media (max-width: 768px) {
+  /* Mantém imagens e vídeos dentro da tela */
+  .slider,
+  .hero-media,
+  .slideshow,
+  .tile,
+  .tile img,
+  .video-ph {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radius-lg);
+  }
 
+  .slider {
+    overflow: hidden;
+    margin-inline: auto;
+  }
 
+  /* Garante que os slides continuem deslizando */
+  .hero-slides,
+  .slider .slides {
+    display: flex;
+    transition: transform 0.6s ease;
+    will-change: transform;
+  }
+
+  /* Imagens centralizadas */
+  .slider .tile img,
+  .slideshow img {
+    object-fit: contain;
+  }
+
+  /* Margem lateral do conteúdo */
+  .section,
+  .container {
+    padding-inline: 1rem;
+  }
+
+  /* Setas inferiores no mobile */
+  .slider .nav,
+  .hero-nav {
+    top: auto;
+    bottom: 10px;
+    transform: none;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+  }
+
+  .slider .nav:hover,
+  .hero-nav:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
