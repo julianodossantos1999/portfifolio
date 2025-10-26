@@ -174,6 +174,7 @@ img{ max-width:100%; display:block; }
   border-radius: var(--radius-xl);
   display: block; /* remove flex que esticava altura */
   padding: 0;
+  overflow: hidden;
 }
 
 /* Container dos slides */
@@ -402,4 +403,5 @@ footer{ margin-top:50px; padding:24px 0; border-top:1px solid var(--border); col
     grid-template-columns: 1fr;
   }
 }
+
 
